@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Mock Data
+        CityController.sharedInstance.createCity(name: "New New Mexico", temp: 103.2, high: 113, low: 98, status: "Super sunny!")
         
         return true
     }
