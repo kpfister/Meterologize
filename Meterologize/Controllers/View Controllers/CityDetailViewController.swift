@@ -15,16 +15,16 @@ class CityDetailViewController: UIViewController {
     @IBOutlet weak var projectedHighLabel: UILabel!
     @IBOutlet weak var projectedLowLabel: UILabel!
     
+    var city: City?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CityController.createCity(name: "New New Mexico", temp: 103.2, high: 113, low: 98, status: "Super sunny!")
         updateViews()
         // Do any additional setup after loading the view.
     }
     
     func updateViews() {
-        guard let city = CityController.cities.first else {return}
+        guard let city = city else {return}
         self.view.backgroundColor = city.currentTemp <= 80.0 ? .cyan : .red
         cityNameLabel.text = city.name
         currentStatusLabel.text = city.currentStatus
