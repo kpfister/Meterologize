@@ -24,12 +24,12 @@ class CityDetailViewController: UIViewController {
     }
     
     func updateViews() {
-        
-        let city = CityController.cities.first
-        cityNameLabel.text = city?.name
-        currentStatusLabel.text = city?.currentStatus
-        currentTempLabel.text = city?.currentStatus.description
-        projectedHighLabel.text = city?.dailyHigh.description
-        projectedLowLabel.text = city?.dailyLow.description
+        guard let city = CityController.cities.first else {return}
+        self.view.backgroundColor = city.currentTemp <= 80.0 ? .cyan : .red
+        cityNameLabel.text = city.name
+        currentStatusLabel.text = city.currentStatus
+        currentTempLabel.text = "\(city.currentTemp)F"
+        projectedHighLabel.text = "High: \(city.dailyHigh)"
+        projectedLowLabel.text = "Low: \(city.dailyHigh)"
     }
 }
